@@ -16,6 +16,6 @@ root.render(
             }
             }>Hello React</h1>
         <p className='paragrafo'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil mollitia aliquid optio magni quod, <br></br>commodi error aspernatur est obcaecati non, sint quam molestiae voluptatum, blanditiis eaque pariatur libero architecto? Asperiores?</p>
-        <App></App>
+        <App><h1>mais um texto</h1></App>
     </div>
 )
