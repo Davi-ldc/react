@@ -1,7 +1,12 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 export default function Cliker({keyName, Color='red', increment}){
+    const buttonRef = useRef()
+
     useEffect(()=>{
+        buttonRef.current.style.backgroundColor = 'papayawhip'
+        buttonRef.current.style.color = 'salmon'
+
         console.log('nasci')
         return ()=>{
             // localStorage.removeItem(keyName)
@@ -32,6 +37,6 @@ export default function Cliker({keyName, Color='red', increment}){
 
     return <div>
         <div> count: {count}</div>
-        <button onClick={buttononclik} style={{backgroundColor: Color}}> clik me </button>
+        <button ref={buttonRef} onClick={buttononclik} style={{backgroundColor: Color}}> clik me </button>
     </div>
 }
