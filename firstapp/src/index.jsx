@@ -19,3 +19,4 @@ root.render(
         <App ClikerCount={3}><h1>mais um texto</h1></App>
     </div>
 )
+//salva tudo que você fez pra comparar quando as coisas mudam. Assim ele so roda dnv oq precisa
