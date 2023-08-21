@@ -1,8 +1,10 @@
 import { useBox } from "@react-three/cannon";
-import { Leva } from 'leva'
-const debug = true;
+import { useControls  } from 'leva'
+import { useState } from "react";
 
-export function ColliderBox({ position, scale }) {
+
+export function ColliderBox({ position, scale, debug }) {
+
   useBox(() => ({
     args: scale,
     position,

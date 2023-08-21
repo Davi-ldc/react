@@ -12,6 +12,7 @@ export function Scene() {
   const [thirdPerson, setThirdPerson] = useState(false);
   const [cameraPosition, setCameraPosition] = useState([-6, 3.9, 6.21]);
 
+
   useEffect(() => {
     function keydownHandler(e) {
       if (e.key == "k") {

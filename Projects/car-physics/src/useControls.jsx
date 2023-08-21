@@ -1,18 +1,28 @@
 import { useEffect, useState } from "react";
 
-export function useControls(vehicleApi, chassisApi){//
+export function useControls(vehicleApi, chassisApi, engineForce){//
     let [controls, setControls] = useState({})
 
+    const [q, setIsQPressed] = useState(false);
     useEffect(() => {
-        const keyDownPressHandler = (e) => {
-          setControls((controls) => ({ ...controls, [e.key.toLowerCase()]: true }));
-        }//retorna uma copia do objeto só que a tecla.lower() precionada vai ser setada pra true
 
-    
+        const keyDownPressHandler = (e) => {
+          if (e.key.toLowerCase() === "q") {
+            setIsQPressed(true);
+          } else {
+            setControls((controls) => ({ ...controls, [e.key.toLowerCase()]: true }));
+          }//retorna uma copia do objeto só que a tecla.lower() precionada vai ser setada pra true
+        };
+
         const keyUpPressHandler = (e) => {
-          setControls((controls) => ({ ...controls, [e.key.toLowerCase()]: false }));
-        }//retorna um copia do objeto mais a tecla q deixou de ser pressionada vira false
-      
+          if (e.key.toLowerCase() === "q") {
+            console.log('oi')
+            setIsQPressed(false);
+          } else {
+            setControls((controls) => ({ ...controls, [e.key.toLowerCase()]: false }));
+          }
+        };
+
         window.addEventListener("keydown", keyDownPressHandler);
         window.addEventListener("keyup", keyUpPressHandler);
         return () => {
@@ -27,15 +37,27 @@ export function useControls(vehicleApi, chassisApi){//
         if(!vehicleApi || !chassisApi) return;
     
         if (controls.w) {
-          vehicleApi.applyEngineForce(75, 2);
-          vehicleApi.applyEngineForce(75, 3);
+          vehicleApi.applyEngineForce(engineForce, 2);
+          vehicleApi.applyEngineForce(engineForce, 3);
         } else if (controls.s) {
-          vehicleApi.applyEngineForce(-75, 2);
-          vehicleApi.applyEngineForce(-75, 3);
+          vehicleApi.applyEngineForce(-engineForce, 2);
+          vehicleApi.applyEngineForce(-engineForce, 3);
         } else {
           vehicleApi.applyEngineForce(0, 2);
           vehicleApi.applyEngineForce(0, 3);
         }
+
+        if (q) {
+          vehicleApi.setBrake(20,0)
+          vehicleApi.setBrake(20,1)
+          vehicleApi.setBrake(20,3)
+          vehicleApi.setBrake(20,2)
+        }
+        else{          
+          vehicleApi.setBrake(0,0)
+          vehicleApi.setBrake(0,1)
+          vehicleApi.setBrake(0,3)
+          vehicleApi.setBrake(0,2)}
     
         if (controls.a) {
           vehicleApi.setSteeringValue(0.35, 2);
@@ -60,7 +82,7 @@ export function useControls(vehicleApi, chassisApi){//
           chassisApi.angularVelocity.set(0, 0, 0);
           chassisApi.rotation.set(0, 0, 0);
         }
-      }, [controls, vehicleApi, chassisApi]);
+      }, [controls, vehicleApi, chassisApi, q]);
 
 
     return controls
