@@ -48,17 +48,18 @@ export function useControls(vehicleApi, chassisApi, engineForce){//
         }
 
         if (q) {
-          vehicleApi.setBrake(20,0)
-          vehicleApi.setBrake(20,1)
-          vehicleApi.setBrake(20,3)
-          vehicleApi.setBrake(20,2)
+          const brakeForce = 5;
+          for (let i = 0; i < 4; i++) {
+            setTimeout(() => {
+              vehicleApi.setBrake(brakeForce, i);
+            }, 10 * i); // Ajuste o valor do timeout conforme necessário
+          }
+        } else {
+          for (let i = 0; i < 4; i++) {
+            vehicleApi.setBrake(0, i);
+          }
         }
-        else{          
-          vehicleApi.setBrake(0,0)
-          vehicleApi.setBrake(0,1)
-          vehicleApi.setBrake(0,3)
-          vehicleApi.setBrake(0,2)}
-    
+
         if (controls.a) {
           vehicleApi.setSteeringValue(0.35, 2);
           vehicleApi.setSteeringValue(0.35, 3);
