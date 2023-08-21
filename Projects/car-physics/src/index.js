@@ -13,9 +13,11 @@ createRoot(document.getElementById('root')).render(
     </Canvas>
 
     <div class="controls">
-      <p>w a s d to anda</p>
-      <p>k troca a visão</p>
+      <p>w a s d anda</p>
+      <p>q freia</p>
       <p>r reseta</p>
+      <p>k troca a visão</p>
+  
     </div>
   </>
 )
