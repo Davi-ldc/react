@@ -1,5 +1,5 @@
 import { useBox } from "@react-three/cannon";
-
+import { Leva } from 'leva'
 const debug = true;
 
 export function ColliderBox({ position, scale }) {
