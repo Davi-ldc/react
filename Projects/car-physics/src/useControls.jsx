@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-
+import * as THREE from 'three'
+import { Quaternion, Vector3 } from "three";
 
 export function useControls(vehicleApi, chassisApi, engineForce) {
   const [controls, setControls] = useState({});
@@ -73,6 +74,13 @@ export function useControls(vehicleApi, chassisApi, engineForce) {
       for (let i = 0; i < 4; i++) {
         vehicleApi.setSteeringValue(0, i);
       }
+    }
+
+    if (controls.n) {
+      chassisApi.velocity.set(0,0,-2.5);
+    }
+    else
+    {
     }
 
     if (controls.r) {
