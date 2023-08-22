@@ -32,7 +32,7 @@ export function Track() {
 
   return (
     <>
-      <mesh geometry={geometry} scale={1,5}>
+      <mesh geometry={geometry} scale={1.5}>
         <meshBasicMaterial
           toneMapped={false}
           map={colorMap}
