@@ -58,6 +58,7 @@ export function Car({ thirdPerson }) {
     wDir.normalize();
 
     let cameraPosition = position.clone().add(wDir.clone().multiplyScalar(1).add(new Vector3(0, 0.3, 0)));
+    console.log(cameraPosition)
     //posição do caro + posição oposta a qual ele ta olhando + 0.3 no y
     wDir.add(new Vector3(0, 0.2, 0));
     state.camera.position.copy(cameraPosition);
