@@ -11,6 +11,7 @@ export function Ramp() {
   const vertices = geometry.attributes.position.array;
   const indices  = geometry.index.array;
 
+
   const [ref] = useTrimesh(
     () => ({
       args: [vertices, indices],

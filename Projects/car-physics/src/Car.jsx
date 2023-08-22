@@ -42,7 +42,7 @@ export function Car({ thirdPerson }) {
     useRef(null),
   );
 
-  useControls(vehicleApi, chassisApi, 100);
+  useControls(vehicleApi, chassisApi, 45);//velocidade é o ultimo
 
   useFrame((state) => {
     if(!thirdPerson) return;

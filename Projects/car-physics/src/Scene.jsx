@@ -39,7 +39,7 @@ export function Scene() {
       )}
 
       <Ground />
-      <Track />
+      <Track scale={1}/>
       <Car thirdPerson={thirdPerson} />
     </Suspense>
   );

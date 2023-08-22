@@ -3,7 +3,8 @@ import { useControls  } from 'leva'
 import { useState } from "react";
 
 
-export function ColliderBox({ position, scale, debug }) {
+export function ColliderBox({ position, scale, debug, scaleTrack }) {
+
 
   useBox(() => ({
     args: scale,
