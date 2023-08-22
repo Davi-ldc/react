@@ -7,6 +7,7 @@ export function Ramp() {
   const result = useLoader(GLTFLoader, process.env.PUBLIC_URL + "/models/ramp.glb");
 
   const geometry = result.scene.children[0].geometry;
+  geometry.scale(2, 2, 2)
   
   const vertices = geometry.attributes.position.array;
   const indices  = geometry.index.array;
