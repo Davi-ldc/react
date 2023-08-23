@@ -14,7 +14,7 @@ export function Car({ thirdPerson }) {
     process.env.PUBLIC_URL + "/models/car.glb"
   ).scene;
 
-  const position = [-1.5, 0.5, 3];
+  const position = [-1.05, 0.5, 1.8];
   const width = 0.15;
   const height = 0.07;
   const front = 0.15;
@@ -42,7 +42,7 @@ export function Car({ thirdPerson }) {
     useRef(null),
   );
 
-  useControls(vehicleApi, chassisApi, 45);//velocidade é o ultimo
+  useControls(vehicleApi, chassisApi, 45/2);//velocidade é o ultimo
 
   useFrame((state) => {
     if(!thirdPerson) return;
@@ -57,8 +57,7 @@ export function Car({ thirdPerson }) {
     wDir.applyQuaternion(quaternion);
     wDir.normalize();
 
-    let cameraPosition = position.clone().add(wDir.clone().multiplyScalar(1).add(new Vector3(0, 0.3, 0)));
-    console.log(cameraPosition)
+    let cameraPosition = position.clone().add(wDir.clone().multiplyScalar(0.5).add(new Vector3(0, 0.3/2, 0)));
     //posição do caro + posição oposta a qual ele ta olhando + 0.3 no y
     wDir.add(new Vector3(0, 0.2, 0));
     state.camera.position.copy(cameraPosition);
@@ -69,7 +68,7 @@ export function Car({ thirdPerson }) {
     if (!result) return;
 
     let mesh = result;
-    mesh.scale.set(0.0012, 0.0012, 0.0012);
+    mesh.scale.set(0.0006, 0.0006, 0.0006);
 
     mesh.children[0].position.set(-365, -18, -67);
   }, [result]);

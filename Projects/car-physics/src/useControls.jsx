@@ -34,11 +34,9 @@ export function useControls(vehicleApi, chassisApi, engineForce) {
   useEffect(() => {
     if (!vehicleApi || !chassisApi) return;
 
-    const modifiedEngineForce = engineForce;
-
     if (controls.w) {
-      vehicleApi.applyEngineForce(modifiedEngineForce, 2);
-      vehicleApi.applyEngineForce(modifiedEngineForce, 3);
+      vehicleApi.applyEngineForce(engineForce, 2);
+      vehicleApi.applyEngineForce(engineForce, 3);
     } else if (controls.s) {
       vehicleApi.applyEngineForce(-engineForce, 2);
       vehicleApi.applyEngineForce(-engineForce, 3);
@@ -48,7 +46,7 @@ export function useControls(vehicleApi, chassisApi, engineForce) {
     }
 
     if (shift) {
-      const brakeForce = 4;
+      const brakeForce = 1;
       for (let i = 0; i < 2; i++) {
         setTimeout(() => {
           vehicleApi.setBrake(brakeForce, i);
@@ -76,15 +74,23 @@ export function useControls(vehicleApi, chassisApi, engineForce) {
       }
     }
 
-    if (controls.n) {
-      chassisApi.velocity.set(0,0,-2.5);
+    if (controls[" "] ) {
+      vehicleApi.applyEngineForce(80, 1);
+      vehicleApi.applyEngineForce(80, 0);
     }
     else
     {
+      vehicleApi.applyEngineForce(0, 1);
+      vehicleApi.applyEngineForce(0, 0);
     }
 
+    if (controls.arrowdown)  chassisApi.applyLocalImpulse([0, -0.4, 0], [0, 0, +1]);
+    if (controls.arrowup)    chassisApi.applyLocalImpulse([0, -0.4, 0], [0, 0, -1]);
+    if (controls.arrowleft)  chassisApi.applyLocalImpulse([0, -0.4, 0], [-0.5, 0, 0]);
+    if (controls.arrowright) chassisApi.applyLocalImpulse([0, -0.4, 0], [+0.5, 0, 0]);
+
     if (controls.r) {
-      chassisApi.position.set(-1.5, 0.5, 3);
+      chassisApi.position.set(-1.05, 0.5, 1.8);
       chassisApi.velocity.set(0, 0, 0);
       chassisApi.angularVelocity.set(0, 0, 0);
       chassisApi.rotation.set(0, 0, 0);

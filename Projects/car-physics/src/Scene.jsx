@@ -7,15 +7,16 @@ import { Suspense, useEffect, useState } from "react";
 import { Car } from "./Car";
 import { Ground } from "./Ground";
 import { Track } from "./Track";
+import Timer from "./Timer";
 
 export function Scene() {
   const [thirdPerson, setThirdPerson] = useState(false);
-  const [cameraPosition, setCameraPosition] = useState([-6, 3.9, 6.21]);
+  const [cameraPosition, setCameraPosition] = useState([-6/2, 3.9/2, 6.21/2]);
 
 
   useEffect(() => {
     function keydownHandler(e) {
-      if (e.key == "k") {
+      if (e.key === "k") {
         // random is necessary to trigger a state change
         if(thirdPerson) setCameraPosition([-6, 3.9, 6.21 + Math.random() * 0.01]);
         setThirdPerson(!thirdPerson); 
@@ -35,11 +36,11 @@ export function Scene() {
 
       <PerspectiveCamera makeDefault position={cameraPosition} fov={40} />
       {!thirdPerson && (
-        <OrbitControls target={[-2.64, -0.71, 0.03]} />
+        <OrbitControls target={[-2.64/2, -0.71/2, 0.03/2]} />
       )}
-
+      <Timer />
       <Ground />
-      <Track scale={1}/>
+      <Track />
       <Car thirdPerson={thirdPerson} />
     </Suspense>
   );
