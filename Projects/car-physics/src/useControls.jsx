@@ -83,6 +83,19 @@ export function useControls(vehicleApi, chassisApi, engineForce) {
     {
     }
 
+    if (controls.q) {
+      const brakeForce = 5;
+      for (let i = 0; i < 4; i++) {
+        setTimeout(() => {
+          vehicleApi.setBrake(brakeForce, i);
+          }, 10 * i); 
+        }
+      } else {
+          for (let i = 0; i < 4; i++) {
+            vehicleApi.setBrake(0, i);
+          }
+        }
+
     if (controls.r) {
       chassisApi.position.set(-1.5, 0.5, 3);
       chassisApi.velocity.set(0, 0, 0);
