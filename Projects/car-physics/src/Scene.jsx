@@ -12,7 +12,7 @@ import { CheckPoints } from "./CheckPoints";
 
 export function Scene() {
 
-  const [thirdPerson, setThirdPerson] = useState(false);
+  const [thirdPerson, setThirdPerson] = useState(true);
   const [cameraPosition, setCameraPosition] = useState([-6/2, 3.9/2, 6.21/2]);
 
 

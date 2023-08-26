@@ -5,25 +5,15 @@ import { Quaternion, Vector3 } from "three";
 
 export function useControls(vehicleApi, chassisApi, engineForce) {
   const [controls, setControls] = useState({});
-  const [shift, setIsShiftPressed] = useState(false);
-
 
   useEffect(() => {
     const keyDownPressHandler = (e) => {
-      if (e.key.toLowerCase() === "shift") {
-        setIsShiftPressed(true);
-      } else {
-        setControls((controls) => ({ ...controls, [e.key.toLowerCase()]: true }));
-      }
-    };
+      setControls((controls) => ({ ...controls, [e.key.toLowerCase()]: true }));
+    }//retorna uma copia do objeto só que a tecla.lower() precionada vai ser setada pra true
 
     const keyUpPressHandler = (e) => {
-      if (e.key.toLowerCase() === "shift") {
-        setIsShiftPressed(false);
-      } else {
-        setControls((controls) => ({ ...controls, [e.key.toLowerCase()]: false }));
-      }
-    };
+      setControls((controls) => ({ ...controls, [e.key.toLowerCase()]: false }));
+    }//retorna um copia do objeto mais a tecla q deixou de ser pressionada vira false
 
     window.addEventListener("keydown", keyDownPressHandler);
     window.addEventListener("keyup", keyUpPressHandler);
@@ -47,18 +37,15 @@ export function useControls(vehicleApi, chassisApi, engineForce) {
       vehicleApi.applyEngineForce(0, 3);
     }
 
-    if (shift) {
-      const brakeForce = 1;
-      for (let i = 0; i < 2; i++) {
-        setTimeout(() => {
-          vehicleApi.setBrake(brakeForce, i);
-        }, 30 * i);
-      }
+    if (controls.shift) {
+      console.log(controls)
+      vehicleApi.setBrake(1.5, 0);
+      vehicleApi.setBrake(1.5, 1);
     } else {
-      for (let i = 0; i < 2; i++) {
-        vehicleApi.setBrake(0, i);
+        vehicleApi.setBrake(0, 0);
+        vehicleApi.setBrake(0, 1);
       }
-    }
+
 
     if (controls.a) {
       vehicleApi.setSteeringValue(0.35, 2);
@@ -97,7 +84,7 @@ export function useControls(vehicleApi, chassisApi, engineForce) {
       chassisApi.angularVelocity.set(0, 0, 0);
       chassisApi.rotation.set(0, 0, 0);
     }
-  }, [controls, vehicleApi, chassisApi, shift]);
+  }, [controls, vehicleApi, chassisApi]);
 
   return controls;
 }

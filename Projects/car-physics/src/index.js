@@ -15,7 +15,7 @@ createRoot(document.getElementById('root')).render(
 
     <div className="controls">
       <p>w a s d anda</p>
-      <p>setas pra girar no ar freia</p>
+      <p>setas pra girar no ar</p>
       <p>r reseta</p>
       <p>k troca a visão</p>
       <p>barra de espaço da um boost</p>

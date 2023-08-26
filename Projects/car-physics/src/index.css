@@ -6,7 +6,18 @@ body, html, #root {
 }
 
 div {
+  position: relative;
   user-select: none;
+}
+
+.controls {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  background: black;
+  opacity: 0.5;
+  color: white;
+  padding: 5px;
 }
 
 p {
@@ -14,4 +25,16 @@ p {
   font-family: monospace;
   font-size: 12px;
   letter-spacing: 0.75px;
+}
+
+.time
+{
+    position: absolute;
+    top: 0%;
+    left: 0;
+    width: 100%;
+    color: #ffffff;
+    font-size: 8vh;
+    padding-top: 5px;
+    text-align: center;
 }
