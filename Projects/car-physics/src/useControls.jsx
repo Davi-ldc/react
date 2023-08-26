@@ -1,3 +1,4 @@
+import { useFrame } from "@react-three/fiber";
 import { useEffect, useState } from "react";
 import * as THREE from 'three'
 import { Quaternion, Vector3 } from "three";
@@ -5,6 +6,7 @@ import { Quaternion, Vector3 } from "three";
 export function useControls(vehicleApi, chassisApi, engineForce) {
   const [controls, setControls] = useState({});
   const [shift, setIsShiftPressed] = useState(false);
+
 
   useEffect(() => {
     const keyDownPressHandler = (e) => {

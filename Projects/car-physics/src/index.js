@@ -4,6 +4,7 @@ import { Physics } from '@react-three/cannon'
 import { Canvas } from '@react-three/fiber'
 import { Scene } from './Scene'
 
+
 createRoot(document.getElementById('root')).render(
   <>
     <Canvas>
@@ -12,15 +13,14 @@ createRoot(document.getElementById('root')).render(
       </Physics>
     </Canvas>
 
-    <div class="controls">
+    <div className="controls">
       <p>w a s d anda</p>
       <p>setas pra girar no ar freia</p>
       <p>r reseta</p>
       <p>k troca a visão</p>
       <p>barra de espaço da um boost</p>
       <p>shift freia</p>
-
-  
     </div>
+
   </>
 )

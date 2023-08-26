@@ -7,9 +7,11 @@ import { Suspense, useEffect, useState } from "react";
 import { Car } from "./Car";
 import { Ground } from "./Ground";
 import { Track } from "./Track";
-import Timer from "./Timer";
+import { CheckPoints } from "./CheckPoints";
+
 
 export function Scene() {
+
   const [thirdPerson, setThirdPerson] = useState(false);
   const [cameraPosition, setCameraPosition] = useState([-6/2, 3.9/2, 6.21/2]);
 
@@ -38,10 +40,10 @@ export function Scene() {
       {!thirdPerson && (
         <OrbitControls target={[-2.64/2, -0.71/2, 0.03/2]} />
       )}
-      <Timer />
       <Ground />
       <Track />
       <Car thirdPerson={thirdPerson} />
+      <CheckPoints />
     </Suspense>
   );
 }

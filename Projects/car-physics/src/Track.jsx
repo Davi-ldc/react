@@ -13,7 +13,6 @@ export function Track() {
     debug: false,
   });
 
-  // const {debug, colisoes} = useControls({ debug: false, colisoes:true });
   const result = useLoader(
     GLTFLoader,
     process.env.PUBLIC_URL + "/models/track.glb"
