@@ -13,20 +13,20 @@ export function CheckPoints(){
     const positions = [[-1,0.45,0.1], [0.98,0,-1.11], [-2,0,0], [-4.37, 0, 1.47]];
     const scale = [0.176,0.176,0.176]
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-          setTime((prevTime) => prevTime + 0.01); // Increment time by 0.01 seconds
-        }, 10); // Update every 10 milliseconds (0.01 seconds)
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //       setTime((prevTime) => prevTime + 0.01); // Increment time by 0.01 seconds
+    //     }, 10); // Update every 10 milliseconds (0.01 seconds)
     
-        return () => {
-          clearInterval(interval);
-        };
-      }, []);
+    //     return () => {
+    //       clearInterval(interval);
+    //     };
+    //   }, []);
       
     return <> 
-        <Html>
+        {/* <Html>
             <div className="time">{time.toFixed(2)}</div>
-        </Html>
+        </Html> */}
         {checkpoints === 0 &&(
             <mesh position={positions[0]} scale={scale}>
                 <boxGeometry />
