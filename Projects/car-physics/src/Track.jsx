@@ -38,16 +38,16 @@ export function Track() {
         />
       </mesh>
       { colisoes &&
-      <><ColliderBox position={[1.75, 0, 0.5]} scale={[0.3, 1, 0.3]} debug={debug}/>
-      <ColliderBox position={[2.5, 0, -1.4]} scale={[0.3, 1, 0.3]} debug={debug}/>
-      <ColliderBox position={[0.6, 0, -3.8]} scale={[0.3, 1, 0.3]} debug={debug}/>
-      <ColliderBox position={[-1.95, 0, -5.18]} scale={[0.3, 1, 0.3]} debug={debug}/>
-      <ColliderBox position={[-5.55, 0, -3.05]} scale={[0.3, 1, 0.3]} debug={debug}/>
-      <ColliderBox position={[-4.4, 0, -1.77]} scale={[0.3, 1, 0.3]} debug={debug}/>
-      <ColliderBox position={[-7.03, 0, -0.76]} scale={[0.3, 1, 0.3]} debug={debug}/>
-      <ColliderBox position={[-4.75, 0, 2.73]} scale={[0.3, 1, 0.3]} debug={debug}/>
-      <ColliderBox position={[-3.05, 0, 3.4]} scale={[0.3, 1, 0.3]} debug={debug}/>
-      <ColliderBox position={[-0.83, 0, 3.2]} scale={[0.3, 1, 0.3]} debug={debug}/>
+      <><ColliderBox position={[1.75, 0, 0.5]} scale={[0.3/3.4, 1/3.4, 0.3/3.4]} debug={debug}/>
+      <ColliderBox position={[2.5, 0, -1.4]} scale={[0.3/3.4, 1/3.4, 0.3/3.4]} debug={debug}/>
+      <ColliderBox position={[0.6, 0, -3.8]} scale={[0.3/3.4, 1/3.4, 0.3/3.4]} debug={debug}/>
+      <ColliderBox position={[-1.95, 0, -5.18]} scale={[0.3/3.4, 1/3.4, 0.3/3.4]} debug={debug}/>
+      <ColliderBox position={[-5.55, 0, -3.05]} scale={[0.3/3.4, 1/3.4, 0.3/3.4]} debug={debug}/>
+      <ColliderBox position={[-4.4, 0, -1.77]} scale={[0.3/3.4, 1/3.4, 0.3/3.4]} debug={debug}/>
+      <ColliderBox position={[-7.03, 0, -0.76]} scale={[0.3/3.4, 1/3.4, 0.3/3.4]} debug={debug}/>
+      <ColliderBox position={[-4.75, 0, 2.73]} scale={[0.3/3.4, 1/3.4, 0.3/3.4]} debug={debug}/>
+      <ColliderBox position={[-3.05, 0, 3.4]} scale={[0.3/3.4, 1/3.4, 0.3/3.4]} debug={debug}/>
+      <ColliderBox position={[-0.83, 0, 3.2]} scale={[0.3/3.4, 1/3.4, 0.3/3.4]} debug={debug}/>
       
       <ColliderBox position={[-1.85,0,0.385]} scale={[0.05, 1, 0.13]} debug={debug}/>
       <ColliderBox position={[-1.85,0,-0.385]} scale={[0.05, 1, 0.13]} debug={debug}/>
