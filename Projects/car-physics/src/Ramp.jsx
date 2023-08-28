@@ -12,7 +12,7 @@ export function Ramp() {
   const indices  = geometry.index.array;
 
 
-  const [ref] = useTrimesh(
+  useTrimesh(
     () => ({
       args: [vertices, indices],
       mass: 0,

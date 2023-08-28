@@ -1,7 +1,4 @@
-import { useFrame } from "@react-three/fiber";
 import { useEffect, useState } from "react";
-import * as THREE from 'three'
-import { Quaternion, Vector3 } from "three";
 
 export function useControls(vehicleApi, chassisApi, engineForce) {
   const [controls, setControls] = useState({});
@@ -38,7 +35,6 @@ export function useControls(vehicleApi, chassisApi, engineForce) {
     }
 
     if (controls.shift) {
-      console.log(controls)
       vehicleApi.setBrake(1.5, 0);
       vehicleApi.setBrake(1.5, 1);
     } else {
@@ -84,7 +80,7 @@ export function useControls(vehicleApi, chassisApi, engineForce) {
       chassisApi.angularVelocity.set(0, 0, 0);
       chassisApi.rotation.set(0, 0, 0);
     }
-  }, [controls, vehicleApi, chassisApi]);
+  }, [controls, vehicleApi, engineForce, chassisApi]);
 
   return controls;
 }

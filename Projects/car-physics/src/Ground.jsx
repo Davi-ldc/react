@@ -7,7 +7,7 @@ import { TextureLoader } from "three/src/loaders/TextureLoader"
 
 export function Ground() {
 
-    const [ref] = usePlane(
+    usePlane(
       () => ({ 
         type: 'Static',//não é afetado por forças
         rotation: [-Math.PI / 2, 0, 0] }
@@ -43,7 +43,7 @@ export function Ground() {
 
         var uvs2 = meshRef2.current.geometry.attributes.uv.array;
         meshRef2.current.geometry.setAttribute("uv2", new BufferAttribute(uvs2, 2));
-      }, [meshRef.current]);
+      }, []);
 
       return (<>
 
