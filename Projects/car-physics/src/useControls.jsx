@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export function useControls(vehicleApi, chassisApi, engineForce) {
+export function useControls(vehicleApi, chassisApi, engineForce, time) {
   const [controls, setControls] = useState({});
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export function useControls(vehicleApi, chassisApi, engineForce) {
   }, []);
 
   useEffect(() => {
-    if (!vehicleApi || !chassisApi) return;
+    if (!vehicleApi || !chassisApi || ((Date.now()-time.startTime)/1000 < 3)) return;
 
     if (controls.w) {
       vehicleApi.applyEngineForce(engineForce, 2);

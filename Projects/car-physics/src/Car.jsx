@@ -7,7 +7,7 @@ import { useControls } from "./useControls";
 import { useWheels } from "./useWheels";
 import { WheelDebug } from "./WheelDebug";
 
-export function Car({ thirdPerson }) {
+export function Car({ thirdPerson, time}) {
   
   let result = useLoader(
     GLTFLoader,
@@ -42,7 +42,7 @@ export function Car({ thirdPerson }) {
     useRef(null),
   );
 
-  useControls(vehicleApi, chassisApi, 45/2);//velocidade é o ultimo
+  useControls(vehicleApi, chassisApi, 45/2, time);//velocidade é o ultimo
 
   useFrame((state) => {
     if(!thirdPerson) return;

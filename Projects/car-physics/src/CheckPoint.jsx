@@ -9,7 +9,6 @@ export function CheckPoint({ handleCollide, position, scale }) {
       onCollide: handleCollide,
     }));
 
-    console.log(api)
     
     return (
       <mesh position={position} scale={scale}>

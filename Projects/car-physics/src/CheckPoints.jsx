@@ -1,11 +1,9 @@
 import { useBox } from '@react-three/cannon';
 import { Html } from '@react-three/drei';
 import { useState, useEffect } from 'react';
-import useGame from './useGame';
 import { CheckPoint } from './CheckPoint';
 
 export function CheckPoints(){
-    const end = useGame((state) => state.end)
     const [checkpoints, setCheckpoints] = useState(0)
     const [time, setTime] = useState(0.0);
     const [checkpointSound] = useState(() => new Audio('./checkpoint.mp3'));

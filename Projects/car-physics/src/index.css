@@ -38,3 +38,38 @@ p {
     padding-top: 5px;
     text-align: center;
 }
+
+.app-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.countdown-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.countdown-text {
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+.timer-container {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 8px 16px;
+  border-radius: 4px;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+

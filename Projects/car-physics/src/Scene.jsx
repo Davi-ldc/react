@@ -9,16 +9,13 @@ import { Ground } from "./Ground";
 import { Track } from "./Track";
 import { CheckPoints } from "./CheckPoints";
 import { Perf } from 'r3f-perf'
-import useGame from './useGame'
+import { useFrame } from "@react-three/fiber";
 
-
-export function Scene() {
-
+export function Scene(startTime) {
+  // useFrame(()=>{console.log((Date.now() - Time)/1000)})
   const [thirdPerson, setThirdPerson] = useState(true);
   const [cameraPosition, setCameraPosition] = useState([-6/2, 3.9/2, 6.21/2]);
-  const state = useGame((state) => state)
-  console.log(state)
-
+  console.log('OI')
 
 
   useEffect(() => {
@@ -47,7 +44,7 @@ export function Scene() {
       )}
       <Ground />
       <Track />
-      <Car thirdPerson={thirdPerson} />
+      <Car thirdPerson={thirdPerson} time={startTime} />
       <CheckPoints />
     </Suspense>
   );
