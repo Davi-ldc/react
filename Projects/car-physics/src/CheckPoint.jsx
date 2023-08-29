@@ -5,7 +5,7 @@ export function CheckPoint({ handleCollide, position, scale }) {
     const [ ref, api ] = useBox(() => ({
       args: scale,
       position,
-      type: 'Static',
+      type: 'Kinematic',
       onCollide: handleCollide,
     }));
 

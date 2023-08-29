@@ -44,7 +44,7 @@ function App() {
       </div>
     ) : (
       <div className="timer-container">
-        {((t.timer % 1000) / 10).toFixed(2)}
+        {(t.elapsedTime / 1000).toFixed(2)}
       </div>
     )}
 
