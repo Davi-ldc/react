@@ -2,21 +2,37 @@ import { useBox } from '@react-three/cannon';
 import { Html } from '@react-three/drei';
 import { useState, useEffect } from 'react';
 import { CheckPoint } from './CheckPoint';
+import { useTimer } from './TimerContext';
+export function CheckPoints(startTime){
 
-export function CheckPoints(){
     const [checkpoints, setCheckpoints] = useState(0)
-    const [time, setTime] = useState(0.0);
+    const [lap, setlap] = useState(0)
     const [checkpointSound] = useState(() => new Audio('./checkpoint.mp3'));
     const [lapSound] = useState(() => new Audio('./lap.mp3'));
     const [finishSound] = useState(() => new Audio('./finish.mp3'));
     const positions = [[-1,0.45,0.1], [0.98,0,-1.11], [-2,0,0], [-4.37, 0, 1.47]];
     const scale = [0.176,0.176,0.176]
+    console.log(startTime.startTime.startTime)
+
+
 
 
     const handleCollide = ()=>{
-        playCheckpointSound()
+        if (checkpoints !== 3){
+          playCheckpointSound()
+        }
         if (checkpoints === 3){
             setCheckpoints(0)
+            setlap(lap+1)
+            if (lap !==2){
+              playLapSound()
+            }
+            if (lap === 2){
+              playFinishSound()
+              alert('seu tempo foi de ' + ((Date.now()-startTime.startTime.startTime)/1000).toFixed(2) + ' segundos, recarregue a pagina para jogar denovo');
+              setCheckpoints(0)
+              setlap(0)
+            }
         }
         else{
             setCheckpoints(checkpoints+1)

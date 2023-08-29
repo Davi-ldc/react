@@ -15,7 +15,6 @@ export function Scene(startTime) {
   // useFrame(()=>{console.log((Date.now() - Time)/1000)})
   const [thirdPerson, setThirdPerson] = useState(true);
   const [cameraPosition, setCameraPosition] = useState([-6/2, 3.9/2, 6.21/2]);
-  console.log('OI')
 
 
   useEffect(() => {
@@ -45,7 +44,7 @@ export function Scene(startTime) {
       <Ground />
       <Track />
       <Car thirdPerson={thirdPerson} time={startTime} />
-      <CheckPoints />
+      <CheckPoints startTime={startTime}/>
     </Suspense>
   );
 }
