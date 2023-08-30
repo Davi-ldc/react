@@ -40,17 +40,17 @@ export function CheckPoints(startTime){
     }
 
     const playCheckpointSound = () => {
-        checkpointSound.volume = 0.05;
+        //checkpointSound.volume = 0.05;
         checkpointSound.play();
       };
     
     const playLapSound = () => {
-        lapSound.volume = 0.4;
+        //lapSound.volume = 0.4;
         lapSound.play();
       };
     
     const playFinishSound = () => {
-        finishSound.volume = 0.05;
+        //finishSound.volume = 0.05;
         finishSound.play();
       };
       
