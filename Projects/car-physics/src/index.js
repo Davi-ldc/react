@@ -10,8 +10,9 @@ import { useMemo } from 'react';
 function App() {
   const [countdown, setCountdown] = useState(3);
   const [startTime, setStartTime] = useState(Date.now());
-  const t = useTimer()
+  const [countdownAudio] = useState(() => new Audio('./countdown.mp3'));
 
+  const t = useTimer()
 
   useEffect(() => {
     if (countdown > 0) {
@@ -21,7 +22,6 @@ function App() {
       return () => clearTimeout(timer);
     }
     else {
-      console.log(t)
       t.startTimer()
     }
   }, [countdown]);
@@ -37,16 +37,19 @@ function App() {
       <Canvas>
         {memoizedPhysics}
       </Canvas>
-  
+    
     {countdown > 0 ? (
       <div className="countdown-container">
         <div className="countdown-text">{countdown}</div>
+        
       </div>
     ) : (
       <div className="timer-container">
         {(t.elapsedTime / 1000).toFixed(2)}
       </div>
     )}
+
+ 
 
 
       <div className="controls">
