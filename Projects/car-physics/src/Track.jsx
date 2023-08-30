@@ -9,7 +9,7 @@ import { useControls  } from 'leva'
 
 export function Track() {
   const { colisoes, debug } = useControls({
-    colisoes: true,
+    colisoes: false,
     debug: false,
   });
 

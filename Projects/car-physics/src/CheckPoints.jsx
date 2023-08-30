@@ -1,6 +1,4 @@
-import { useBox } from '@react-three/cannon';
-import { Html } from '@react-three/drei';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { CheckPoint } from './CheckPoint';
 import { useTimer } from './TimerContext';
 export function CheckPoints(startTime){
