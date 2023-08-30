@@ -7,12 +7,12 @@ export function CheckPoints(startTime){
 
     const [checkpoints, setCheckpoints] = useState(0)
     const [lap, setlap] = useState(0)
+    const t = useTimer()
     const [checkpointSound] = useState(() => new Audio('./checkpoint.mp3'));
     const [lapSound] = useState(() => new Audio('./lap.mp3'));
     const [finishSound] = useState(() => new Audio('./finish.mp3'));
     const positions = [[-1,0.45,0.1], [0.98,0,-1.11], [-2,0,0], [-4.37, 0, 1.47]];
     const scale = [0.176,0.176,0.176]
-    console.log(startTime.startTime.startTime)
 
 
 
@@ -32,6 +32,7 @@ export function CheckPoints(startTime){
               alert('seu tempo foi de ' + ((Date.now()-startTime.startTime.startTime)/1000).toFixed(2) + ' segundos, recarregue a pagina para jogar denovo');
               setCheckpoints(0)
               setlap(0)
+              t.setStartTime(Date.now())
             }
         }
         else{
@@ -40,7 +41,7 @@ export function CheckPoints(startTime){
     }
 
     const playCheckpointSound = () => {
-        checkpointSound.volume = 0.05;
+        chec.
         checkpointSound.play();
       };
     
