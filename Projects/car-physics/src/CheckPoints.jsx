@@ -32,7 +32,6 @@ export function CheckPoints(startTime){
               alert('seu tempo foi de ' + ((Date.now()-startTime.startTime.startTime)/1000).toFixed(2) + ' segundos, recarregue a pagina para jogar denovo');
               setCheckpoints(0)
               setlap(0)
-              t.setStartTime(Date.now())
             }
         }
         else{

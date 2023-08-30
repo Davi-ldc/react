@@ -10,7 +10,6 @@ import { useMemo } from 'react';
 function App() {
   const [countdown, setCountdown] = useState(3);
   const [startTime, setStartTime] = useState(Date.now());
-  const [countdownAudio] = useState(() => new Audio('./countdown.mp3'));
 
   const t = useTimer()
 
@@ -48,8 +47,6 @@ function App() {
         {(t.elapsedTime / 1000).toFixed(2)}
       </div>
     )}
-
- 
 
 
       <div className="controls">
