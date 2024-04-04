@@ -10,7 +10,7 @@ export function CheckPoints(startTime){
     const [lapSound] = useState(() => new Audio('./lap.mp3'));
     const [finishSound] = useState(() => new Audio('./finish.mp3'));
     const positions = [[-1,0.45,0.1], [0.98,0,-1.11], [-2,0,0], [-4.37, 0, 1.47]];
-    const scale = [0.176,0.176,0.176]
+    const scale = [0,0,0]
 
 
 
